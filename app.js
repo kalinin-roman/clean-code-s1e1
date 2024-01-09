@@ -18,7 +18,7 @@ const completedTasksHolder = document.getElementById("completed-tasks");//comple
 const createNewTaskElement = function (taskString) {
   console.log("Add Task...");
   const listItem = document.createElement("li");
-  listItem.classList.add("todo-task");
+  listItem.classList.add("todo-tasks__task");
 
   //input (checkbox)
   const checkBox = document.createElement("input");
@@ -41,7 +41,7 @@ const createNewTaskElement = function (taskString) {
   checkBox.type = "checkbox";
   checkBox.className = "checkbox";
   editInput.type = "text";
-  editInput.className = "text-data task-size text-item hide-edit";
+  editInput.className = "text-data todo-tasks__input text-item hide-edit";
 
   editButton.innerText = "Edit"; //innerText encodes special characters, HTML does not.
   editButton.className = "btn btn-edit";
@@ -131,7 +131,7 @@ const taskCompleted = function () {
   const listItem = this.parentNode;
   // add class names
   const label = listItem.querySelector("label");
-  label.classList.add("completed-caption");
+  label.classList.add("todo-completed__done");
   completedTasksHolder.appendChild(listItem);
   bindTaskEvents(listItem, taskIncomplete);
 
@@ -146,7 +146,7 @@ const taskIncomplete = function () {
   const listItem = this.parentNode;
   // add class names
   const label = listItem.querySelector("label");
-  label.classList.remove("completed-caption");
+  label.classList.remove("todo-completed__done");
   incompleteTaskHolder.appendChild(listItem);
   bindTaskEvents(listItem, taskCompleted);
 }
